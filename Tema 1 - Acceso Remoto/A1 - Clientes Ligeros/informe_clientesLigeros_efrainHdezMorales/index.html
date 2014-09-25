@@ -1,0 +1,109 @@
+<html>
+<head>
+	<title>Informe Clientes Ligeros con LTSP por Efraín Hernández Morales</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Administración de Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Clientes Ligeros con LTSP</i></li>
+    <li><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i>25 de Septiembre de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>1. Servidor LTSP</a> | <a href='#bloque2'>1.1 Preparar la MV Server</a> | <a href='#bloque3'>1.2 Instalación del SO</a> | <a href='#bloque4'>1.3 Instalar el servicio LTSP</a> | <a href='#bloque5'>2. Preparar MV Cliente</a>
+</div>
+<a id='bloque1'></a><h1> 1. Servidor LTSP</h1>
+<h1> </h1>
+<a id='bloque2'></a><h2>1.1 Preparar la MV Server</h2>
+<ul>
+</ul>La MV del servidor necesitará dos interfaces de red:<br />
+<ul>
+  <li>Una externa</li>
+  <ul>
+    <li>para comunicarse con Internet. <br /></li>
+    <li>Configurarla en VBox como adaptador puente.</li>
+    <li>IP estática 172.16.108.12<br /></li>
+    <img src='./files/1.png'/>
+  </ul>
+  <li>Una interna</li>
+  <ul>
+    <li>para conectarse con los clientes ligeros.</li>
+    <li>La IP de esta interfaz de red debe ser estática y debe estar en la misma red que los clientes (IP 192.168.0.1).<br /></li>
+    <li>Configurarla en VBox como &quot;red interna&quot;.</li>
+    <img src='./files/2.png'/>
+  </ul>
+<br/>Aquí muestro las ip configurada para la externa y la interna:<br/>
+<img src='./files/3.png'/>
+<br/><br/>
+Levantamos las nuevas ip.
+<br/>
+<img src='./files/4.png'/><br/>
+<img src='./files/5.png'/>
+
+</ul>
+<a id='bloque3'></a><h2>1.2 Instalación del SO<br /></h2>
+<ul>
+  <li>Instalo un Lubuntu en la MV que actuará como servidor.</li>
+  <li>Nombre de usuario: efrain. Contraseña: mi dni.</li>
+  <li>Como nombre de equipo es mi primer apellido: hernandez.</li>
+  <li>Como nombre de dominio es mi segundo apellido: morales.</li>
+</ul>
+<p><img src='./files/9.png'/><br /></p>
+<ul>
+  <li>Crear 3 usuarios locales llamados:</li>
+  <ul>
+    <li>hernandez-alumno1, <br /></li>
+    <li>hernandez-alumno2, <br /></li>
+    <li>hernandez-alumno3.</li>
+  </ul>
+  <p><img src='./files/11.png'/><br /><img src='./files/10.png'/><br /></p>
+</ul>
+<ul>
+</ul>
+<a id='bloque4'></a><h2>1.3 Instalar el servicio LTSP<br /></h2>
+<ul>
+  <li>Instale el servidor de clientes ligeros, según la documentación para el SO elegido mediante los siguientes comandos:<br /></li>
+  <ul>
+    <li><font face="courier new,courier,monospace">apt-get install ltsp-server-standalone</font></li>
+    <li><font face="courier new,courier,monospace">ltsp-build-client<br /></font></li>
+  </ul>
+  <li>Revisar la configuración de la tarjeta de red interna del servidor. IP estática compatible con la configuración dhcp (/etc/ltsp/dhcpd.conf)</li>
+  <p><img src='./files/7.png'/><br /></p>
+</ul> <hr />
+<p><br /></p>
+<ul>
+</ul>
+<a id='bloque5'></a><h1>2. Preparar MV Cliente</h1>
+<ul>
+</ul>
+<p>Creo la MV cliente:<br /></p>
+<ul>
+  <li>Sin disco duro y sin unidad de DVD.</li>
+  <li>Sólo tiene RAM y floppy (disquete).</li>
+  <p><img src='./files/8.png'/><br /></p>
+  <li>Tarjeta de red PXE en modo &quot;red interna&quot;.</li>
+  <p><img src='./files/12.png'/><br /></p>
+</ul>
+<p>Con el servidor encendido, inicio la MV cliente:<br /></p>
+<ul>
+  <li>Compruebo que todo funciona correctamente.</li>
+  <p><img src='./files/13.png'/><br /></p>
+<ul>
+  <li>Cuando el cliente se conecta, entro con el usuario hernandez-alumno1</li>
+  <li>Voy al servidor, ejecuto el comando &quot;arp&quot; como superusuario y capturo la salida para comprobar la conexión con el cliente.<br /></li>
+  <p><img src='./files/14.png'/><br /></p>
+</ul>
+<p><br /></p>
+</div>
+	
+</body>
+</html>
