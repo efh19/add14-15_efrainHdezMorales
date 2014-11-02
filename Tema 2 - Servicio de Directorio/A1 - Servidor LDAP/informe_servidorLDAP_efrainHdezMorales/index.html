@@ -1,0 +1,121 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Servidor LDAP por Efraín Hernández Morales</title>
+	<style type='text/css'>
+		img{
+		width:30%;
+		border:1px solid black;
+		}
+		img:after{
+		content:"Imagen de Efraín Hernández Morales";	
+		}
+	</style>
+</head>
+<body>
+<div style='display:table-row; padding: 10px;'>
+  <div style='float: left; width=20%; padding:10px;'>
+  <img src='./files/logo.png' style='width:auto;border:0;'/>
+  </div>
+  <div style='float: left;padding:10px'>
+  <ul>
+    <li><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></li>
+    <li><b>T&iacute;tulo del trabajo</b> <i>Servidor LDAP</i></li>
+    <li><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></li>
+    <li><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></li>
+    <li><b>Fecha de entrega:</b> <i>2 de Noviembre de 2014</i></li>
+  </ul>
+  </div>
+</div>
+<div style='float: clear;background-color: #eeeeee; border:2px solid; border-radius:10px; padding: 10px;'>
+<a href='#bloque1'>1. Configurando Máquina Virtual</a> | <a href='#bloque2'>2. Instalación Servidor LDAP</a> | <a href='#bloque3'>3. Configuración Servidor LDAP</a> | <a href='#bloque4'>4. Instalar herramienta cliente PHPLDAPAdmin</a>
+ | <a href='#bloque5'>5. Introducir datos en PHPLDAPAdmin</a> | <a href='#bloque6'>5.1 Creación de Unidades Organizativas</a> | <a href='#bloque7'>5.2 Creación de Grupos</a> | <a href='#bloque8'>5.3 Creación de Usuarios</a> | <a href='#bloque9'>6. Uso de JXplorer</a> |
+</div>
+<h1><a id='bloque1'>1. Configurando Máquina Virtual</a></h1>
+<p>Para el servidor LDAP utilizaremos una máquina virtual con sistema operativo Linux. Para evitar posibles problemas externos, lo pondremos como red interna.</p>
+<img src='./files/1.png'/>
+<p>Además, le pondremos una ip estática.</p>
+<img src='./files/2.png'/>
+<p>Guardamos y actualizamos.</p>
+<img src='./files/3.png'/>
+<br/><br/><hr/>
+<h1><a id='bloque2'>2. Instalación Servidor LDAP</a></h1>
+<p>Tras configurar la máquina virtual, ahora procedemos a instalar el Servidor LDAP. Ejecutamos "apt-get install slapd db4.8-util ldap-utils" en la terminal como superusuario.</p>
+<img src='./files/4.png'/>
+<p>Como vemos nos indica que no puede encontrar las dependencias para instalarlo. Lo que haremos para solucionarlo será añadir los respositorios necesarios en "/etc/apt/sources.list".</p>
+<img src='./files/5.png'/>
+<p>Actualizamos los respositorios con un "apt-get update".</p>
+<img src='./files/6.png'/>
+<p>Finalmente, lo encuentra y ya podemos instalarlo.</p>
+<img src='./files/7.png'/>
+<br/><br/><hr/>
+<h1><a id='bloque3'>3. Configuración Servidor LDAP</a></h1>
+<p>Durante la instalación ya nos pide configurar el servidor ldap. El primer paso es añadir la contraseña del servidor para el administrador.</p>
+<img src='./files/8.png'/>
+<p>Seguidamente, rechazamos la configuración inicial para la base de datos del servidor ldap.</p>
+<img src='./files/9.png'/>
+<p>Ahora, añadimos el nombre de mi dominio que se corresponderá con "efrain.aula108", por lo que quedará como "dc=efrain,dc=aula108".</p>
+<img src='./files/10.png'/>
+<p>Introducimos el nombre de la organización y su respectiva contraseña.</p>
+<img src='./files/11.png'/> <img src='./files/12.png'/>
+<p>En el motor de la base de datos, elegimos la Berkeley DB (BDB).</p>
+<p><u>Berkeley DB (BDB)</u> es una librería multiplataforma escrita en C que proporciona una base de datos embebida de alto rendimiento para datos de tipo clave/valor. Soporta miles de threads o procesos accediendo simultáneamente a las bases de datos, que pueden llegar a ocupar hasta 256 terabytes.
+No es una base de datos relacional ni soporta SQL ni cliente-servidor. Tampoco tiene conocimiento sobre el formato de los datos que almacenamos en ella, sino que se le suministran pares clave/valor y los almacena byte a byte tal cual se los pasamos.</p>
+<img src='./files/13.png'/>
+<p>Añadimos que no se borre la base de datos.</p>
+<img src='./files/14.png'/>
+<p>Activamos que se mueva la base de datos para evitar que se produzcan errores en el proceso de condiguración de "/var/lib/ldap" a la hora de crear una nueva base de datos.</p>
+<img src='./files/15.png'/>
+<p>No permitimos el protocolo Ldap v2.</p>
+<img src='./files/16.png'/>
+<p>Tras finalizar, reiniciamos el servidor ldap.</p>
+<img src='./files/17.png'/>
+<p>Por último, antes de finalizar la configuración, editamos el hostname y añadimos el hosts correspondiente a nuestra máquina.</p>
+<img src='./files/18.png'/><img src='./files/19.png'/>
+<p>Reiniciamos el servidor para que se guarden los cambios y verificamos su estado en el equipo.</p>
+<img src='./files/20.png'/><img src='./files/21.png'/>
+<br/><br/><hr/>
+<h1><a id='bloque4'>4. Instalar herramienta cliente PHPLDAPAdmin</a></h1>
+<p>Para instalar esta herramienta y que pueda funcionar antes debemos tener instalado apache y php. </p>
+<img src='./files/22.png'/>
+<p>Ahora, procederemos a instalar la herramienta cliente PHPLDAPAdmin. Para esto, ejecutamos el comando "sudo apt-get install phpldapadmin".</p>
+<img src='./files/22.2.png'/>
+<p>Tras esto, vamos a nuestro navegador y ejecutamos nuestra herramienta mediante "localhost/phpldapadmin".</p>
+<img src='./files/23.png'/>
+<p>Iniciamos sesión...</p>
+<img src='./files/24.png'/>
+<p>Como vemos, inicia sesión de forma correcta pero claro las bases de datos que se encuentran del ldap son las que vienen por defecto 'dc=example,dc=com'. Para arreglar esto, editamos el "config.php" de phpLDAPadmin que se encuentra en "/etc/phpldapadmin/config.php". Después en la línea 300 del archivo, modifican lo siguiente por sus datos:</p>
+<img src='./files/25.png'/>
+<br/><br/><hr/>
+<h1><a id='bloque5'>5. Introducir datos en PHPLDAPAdmin</a></h1>
+<h2><a id='bloque6'>5.1 Creación de Unidades Organizativas</a></h2>
+<p>Tras arreglar este problema, ya podemos iniciar sesión y empezar a introducir datos en nuestro servidor ldap. Para ello vamos a "Create Object" y primeramente crearemos las unidades organizativas "grupos" y "usuarios".</p>
+<img src='./files/26.png'/><br/>
+<img src='./files/28.png'/><br/>
+<img src='./files/29.png'/><br/>
+<img src='./files/30.png'/>
+<h2><a id='bloque7'>5.2 Creación de Grupos</a></h2>
+<p>Una vez que hemos creado las unidades organizativas, procedemos a crear los grupos "profesores" y "alumnos" que estarán dentro de "ou=grupos". Vamos dentro de "ou=grupos" y le damos a "Create object".</p>
+<img src='./files/31.png'/><br/>
+<img src='./files/32.png'/><br/>
+<img src='./files/33.png'/><br/>
+<h2><a id='bloque8'>5.3 Creación de Usuarios</a></h2>
+<p>El siguiente paso es la creación de usuarios dentro del grupo "ou=alumnos" y "ou=profesores" pero a la hora de crear un objeto nos tilda un error en la creación de usuarios saltando este error: "Error trying to get a non-existant value (appearance,password_hash)".</p>
+<p>Para arreglar esto, vamos al archivo de configuración '/usr/share/phpldapadmin/lib/TemplateRender.php' y editamos la línea 2469 de la siguiente forma:</p>
+<img src='./files/34.png'/><br/>
+<p>Ya arreglado, vamos a la creación de usuarios. Primero, creamos los profesores:</p>
+<img src='./files/35.png'/><br/>
+<img src='./files/36.png'/>
+<p>Ahora, agregamos a los alumnos:</p>
+<img src='./files/37.png'/><br/>
+<img src='./files/38.png'/>
+<p>Y, finalmente, queda de la siguiente forma: </p>
+<img src='./files/39.png'/>
+<br/><br/><hr/>
+<h1><a id='bloque9'>6. Uso de JXplorer</a></h1>
+<p>Ahora, instalaremos el JXplorer en otra máquina con el objetivo de navegar en nuestro servidor ldap desde otro equipo.</p>
+<img src='./files/40.png'/>
+<p>Seguidamente, ejecutamos el programa y ponemos los datos de nuestro servidor ldap.</p>
+<img src='./files/41.png'/>
+</body>
+</html>
