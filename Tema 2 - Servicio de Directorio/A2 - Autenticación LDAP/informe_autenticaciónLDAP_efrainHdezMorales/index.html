@@ -1,0 +1,399 @@
+<html>
+<head>
+	<title>Autenticación LDAP</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Autenticación LDAP</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>9 de Noviembre de 2014</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+        <li><a href="#bloque1">1. Instalando dependencias</a></li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">2. Librerías<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque3">2.1 ldap.conf</a></li>
+			<li><a href="#bloque4">2.2 nsswitch.conf</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">3. Servicios PAM<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque6">3.1 common-auth</a></li>
+			<li><a href="#bloque7">3.2 common-account</a></li>
+			<li><a href="#bloque8">3.3 common-session</a></li>
+			<li><a href="#bloque9">3.4 common-password</a></li>
+          </ul>
+        </li>
+        <li><a href="#bloque10">4 Pruebas</a></li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque1'>1. Instalando dependencias necesarias</a></h1>
+<p class="significado">La librería <b>pam-ldap</b> permite que las aplicaciones que utilizan PAM (Plu
+ggable Authentication Module) para autentificarse,
+puedan hacerlo mediante un servidor LDAP. Para que
+el sistema GNU/Linux se autentifique mediante un se
+rvidor LDAP es
+necesario instalar esta librería ya que utiliza PAM
+. Hay otras aplicaciones o servicios que utilizan PAM para la autentificación y
+por tanto podrían, gracias a la librería
+pam-ldap
+, autentificarse ante un servidor LDAP.</p>
+<p class="significado">La librería
+<b>nss-ldap</b>
+permite que un servidor LDAP suplante a los archivos
+/etc/passwd
+,
+/etc/group
+y
+/etc/shadow
+como bases de datos del sistema. Posteriormente deb
+eremos configurar el archivo
+/etc/nsswitch.conf
+para que se utilice
+LDAP como base de datos del sistema en lugar de los
+archivos
+passwd
+,
+group
+y
+shadow
+. </p>
+<p>Bien, nos vamos a nuestra máquina cliente e instalamos las dependencias necesarias para poder realizar la autenticación ldap y podamos utilizar nuestro servidor ldap (que realizamos en prácticas anteriores) como servidor de autentificación.</p>
+<p>Procedemos a la instalación de los paquetes <i>libpam-ldap</i>.</p>
+<img src='./files/1.png'/>
+<p>Ahora, tras ejecutar el comando, nos aparece un asistente de configuración. Empezamos la configuración. Le indicamos la ruta de nuestro servidor ldap, además de su respectivo puerto que es el 389.</p>
+<img src='./files/2.png'/>
+<p>A continuación, especificamos la base del directorio LDAP.</p>
+<img src='./files/3.png'/>
+<p>Le indicamos la versión de LDAP que vamos a utilizar que es la 3.</p>
+<img src='./files/4.png'/>
+<p>En el siguiente paso, le Indicamos “Sí”, de forma que el usuario “root” podrá cambiar las contraseñas de los usuarios del directorio LDAP del mismo modo en que cambia las contraseñas de los usuarios
+locales. </p>
+<img src='./files/5.png'/>
+<p>Ahora, le añadimos que se pueda acceder al directorio ldap de forma anónima, por lo que no necesita loguearse.</p>
+<img src='./files/6.png'/>
+<p>A continuación, le indicamos la cuenta del administrador del ldap y su contraseña.</p>
+<img src='./files/7.png'/><br/>
+<img src='./files/8.png'/>
+<h1><a id='bloque2'>2. Configuración de las Librerías</a></h1>
+<p class="significado">El archivo de configuración de ambas librerías es
+<i>/etc/ldap.conf</i>
+y la contraseña del administrador del servidor LDAP se
+guarda como texto plano (sin encriptar) en el fichero
+<i>/etc/ldap.secret</i>. </p>
+<h2><a id='bloque3'>2.1 Configurar el fichero ldap.conf</a></h2>
+<p>Vamos al archivo <i>/etc/ldap.conf</i> y activamos las siguientes opciones:</p>
+<img src='./files/9.png'/><br/>
+<img src='./files/10.png'/><br/>
+<img src='./files/11.png'/><br/>
+<img src='./files/12.png'/>
+<h2><a id='bloque4'>2.2 Configurar el fichero nsswitch.conf</a></h2>
+<p>Ahora, editamos el archivo etc/nsswitch.conf y añadimos exactamente en las líneas que hacen referencia a
+“passwd”, “group” y “shadow” como alternativa para autentificar usuarios en el ldap.</p>
+<img src='./files/13.png'/><br/>
+<img src='./files/14.png'/>
+<h1><a id='bloque5'>3. Configurar servicios PAM</a></h1>
+<p class="significado">Nuestro sistema ya estaría preparado para autentifi
+carse por LDAP. Editando los archivos que hay en el
+directorio
+<i>/etc/pam.d</i>
+,
+podemos configurar la forma en la que se autentifica cada uno de los servicios que requieren autentificación. </p>
+<p>Para no tener que configurar cada uno de los servic
+ios, existen unos archivos comunes cuyo nombre empi
+eza por
+common
+que
+afectan a la mayoría de ellos y sus ficheros de con
+figuración referencian mediante una línea
+@include
+a los ficheros comunes,
+causando el mismo el efecto que si el contenido de
+los ficheros comunes estuviera copiado en el lugar
+de la línea
+@include
+. Los
+archivos comunes son:
+<ul>
+	<li>/etc/pam.d/common-auth
+(para autentificarse)</li>
+
+<li>/etc/pam.d/common-account
+(para disponer de una cuenta)</li>
+
+<li>/etc/pam.d/common-session
+(para poder iniciar sesion)</li>
+
+<li>(para poder cambiar password) </li></ul></p>
+<h2><a id='bloque6'>3.1 Configuración del archivo common-auth</a></h2>
+<p>Para que los servicios de nuestro sistema utilicen
+las librerías
+pam-ldap
+para autentificar al usuario, debemos añadir en el
+archivo
+/etc/pam.d/common-auth
+la siguiente línea, justo encima de la línea
+pam_unix.so
+: </p>
+<img src='./files/15.png'/><br/>
+<img src='./files/16.png'/>
+<h2><a id='bloque7'>3.2 Configuración del archivo common-account</a></h2>
+<p>Para permitir que los servicios de nuestro sistema
+comprueben la cuenta del usuario mediante las libre
+rías
+pam-ldap
+, debemos
+añadir en el archivo
+/etc/pam.d/common-account
+la siguiente línea justo encima de la línea
+pam_unix.so
+: </p>
+<img src='./files/17.png'/><br/>
+<img src='./files/18.png'/>
+<h2><a id='bloque8'>3.3 Configuración del archivo common-session</a></h2>
+<p>Para permitir que los servicios de nuestro sistema
+obtengan los parámetros de la sesión de usuario med
+iante las librerías
+pam-
+ldap
+, debemos añadir en el archivo
+/etc/pam.d/common-session
+la siguiente línea encima de la línea
+pam_unix.so
+: </p>
+<img src='./files/19.png'/><br/>
+<img src='./files/20.png'/>
+<p>También, al final del archivo, añadimos la siguiente línea:</p>
+<img src='./files/23.png'/>
+<h2><a id='bloque9'>3.4 Configuración del archivo common-password</a></h2>
+<p>Para permitir que los servicios de nuestro sistema
+puedan modificar la contraseña del usuario mediante
+las librerías
+pam-ldap
+,
+debemos añadir en el archivo
+/etc/pam.d/common-password
+la siguiente línea encima de la línea
+pam_unix.so
+: </p>
+<img src='./files/21.png'/><br/>
+<img src='./files/22.png'/>
+<h1><a id='bloque10'>4. Probar autentificación LDAP</a></h1>
+<p>A la hora de probar mediante los comandos "getent shadow" o "getent passwd" no obtengo los usuarios del ldap y a la hora de reiniciar el equipo, no termina de reiniciar, por lo que hay un fallo pero no se encuentra porque todo está igual que la práctica.</p>
+</div>
+</div>
+</body>
+</html>
