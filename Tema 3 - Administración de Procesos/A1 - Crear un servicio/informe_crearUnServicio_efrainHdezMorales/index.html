@@ -1,0 +1,293 @@
+<html>
+<head>
+	<title>Crear un Servicio</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Crear un Servicio</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>22 de Noviembre de 2014</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">1. System V<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque1">1.0 Introducción</a></li>
+			<li><a href="#bloque2">1.1 Script demonio</a></li>
+			<li><a href="#bloque3">1.2 Script de control</a></li>
+          </ul>
+        </li>
+		<li><a href="#bloque4">2. Upstart</a></li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque1'>1. System V</a></h1>
+<p class="significado">El objetivo de la práctica es la de crear nuestro propio servicio.</p>
+<p>Bien, el primer paso es iniciar nuestro sistema operativo Debian y nos vamos a la ruta <i>"/etc"</i> y creamos la carpeta "kup".</p>
+<img src='./files/1.png'/>
+<p>Seguidamente, entramos en la carpeta "kup" y creamos el archivo "kup.log" vacío.</p>
+<img src='./files/2.png'/>
+<h2><a id='bloque2'>1.1 Script demonio</a></h2>
+<p>Ahora, vamos a la siguiente ruta: "/usr/local/bin/2 y creamos el script "kupd" que será nuestro demonio. Este script será un bucle que ejecutará una tarea de forma repetitiva. </p>
+<img src='./files/3.png'/><br/>
+<img src='./files/4.png'/>
+<p>El siguiente paso será darle permisos de ejecución al script.</p>
+<img src='./files/5.png'/>
+<p>Tras esto, ejecutamos el script en segundo plano con el siguiente comando. Además, veremos los mensajes que aparecen desde nuestro .log <i>"cat /etc/kup/kup.log"</i>. </p>
+<img src='./files/6.png'/>
+<p>Por último, en este paso, "terminamos" nuestro servicio con el comando: </p>
+<img src='./files/7.png'/>
+<p>Comprobamos si el servicio se ha terminado: </p>
+<img src='./files/8.png'/>
+<h2><a id='bloque3'>1.2 Script de control</a></h2>
+<p class="significado">Crearemos un script que controlará el inicio/parada de nuestro demonio, al estilo System V. </p>
+<p>Ahora vamos a crear un script "/etc/init.d/kup" con ruby, por lo que lo instalamos si no se encontraba instalado.</p>
+<img src='./files/11.png'/><br/>
+<img src='./files/10.png'/><br/>
+<p>Damos permisos de ejecución a nuestro script de control.</p>
+<img src='./files/12.png'/>
+<p>Si ejecutamos ahora "update-rc.d mydaemon defaults" obtenemos la siguiente salida:</p>
+<img src='./files/14.png'/>
+<p>Lo que ha ocurrido es que los de Debian han decidido hacer cumplir la norma LSB (Linux Standard Base) 3.1 para los script de arranque basados en dependencias, por lo que ahora para incluir un script en /etc/init.d/ tiene que cumplir una serie de normas especificadas aquí según el capitulo 20 de LSB 3.1.</p>
+<p>Por lo tanto, ahora hay que usar insserv, una herramienta para organizar la secuencia de arranque usando las dependencias de los scripts LSB de initd.d:</p>
+<img src='./files/18.png'/>
+<p>insserv no genera salida alguna si todo ha ido bien. Tanto la forma antigua como la nueva requieren que el script de inicio este presente en /etc/init.d. Además, actualmente, para arranque basado en dependencias, el script ha de ser un LSB init script y cumplir con estos requisitos y expresar sus dependencias de arranque con un bloque similar a este dentro del script alojado en /etc/init.d:
+</p>
+<img src='./files/16.png'/>
+<p>Comprobamos que los directorios /etc/rc*.d contienen ahora un archivo que hace referencia al orden de arranque o apagado de ntop.</p>
+<img src='./files/15.png'/>
+<h1><a id='bloque4'>2. Upstart</a></h1>
+<p class='significado'>Ahora vamos a configurar el servicio, al estilo Upstart.</p>
+<p>Debido a que en Debian no está instalado upstart, procedemos a su instalación. </p>
+<img src='./files/13.png'/>
+<p>Seguidamente, creamos un fichero /etc/init/kup2.conf con el siguiente contenido: </p>
+<p class='significado'>
+	#<br/>
+# Ejemplo /etc/init/kup2.conf<br/>
+#<br/><br/>
+description "Servicio KUP2"<br/><br/>
+
+start on runlevel [2345]<br/>
+stop on runlevel [!2345]<br/><br/>
+
+pre-start script<br/>
+test -x /usr/local/bin/kupd || { stop; exit 0; }<br/>
+end script<br/><br/>
+
+exec /usr/local/bin/kupd<br/>
+</p>
+<p>Después, ejecute el script de la siguiente forma: "service kup2 start" pero no funcionaba. El problema me da que radica en la instalación de upstart que al final tira un error y vuelve a ejecutar el comando de la instalación y me lo vuelve a "instalar".</p>
+</div>
+</div>
+</body>
+</html>
