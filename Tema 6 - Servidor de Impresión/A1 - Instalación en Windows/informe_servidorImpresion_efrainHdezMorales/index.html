@@ -1,0 +1,293 @@
+<html>
+<head>
+	<title>Servidor de Impresión - Efraín Hdez Morales</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Servidor de Impresión</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>13 de Febrero de 2015</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">1. PDF Creator<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque1">1.0 Instalación</a></li>
+			<li><a href="#bloque2">1.1 Compartir en Red</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">2. Active Directory<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque3">2.0 Configuración</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">3. Servicios de Impresión y Documentos<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque4">3.0 Configuración</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">4. Pruebas<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque5">4.0 Introducción</a></li>
+          </ul>
+        </li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque1'>1. PDF Creator</a></h1>
+<p class="significado">PDFCreator para generar archivos PDF desde cualquier aplicación que soporte impresión. El software se utiliza como una impresora virtual que simplemente utiliza para imprimir un documento para generar el PDF.</p>
+<h2><a id='bloque1'>1.1 Instalación PDF Creator</a></h2>
+<p>Empezamos descargando este programa desde la página web oficial y procedemos a su instalación.</p>
+<img src='./files/windows/1.png'/>
+<p>Comprobamos que se ha añadido correctamente viendo nuestros dispositivos e impresoras.</p>
+<img src='./files/windows/2.png'/>
+<h2><a id='bloque2'>1.2 Compartir en Red</a></h2>
+<p>Ahora, vamos a poner nuestra impresora PDF Creator en modo compartida en red.</p>
+<img src='./files/windows/3.png'/>
+<h1><a id='bloque3'>2. Active Directory</a></h1>
+<p>A continuación, vamos a añadir el servicio de Impresión y Documentos desde nuestro Administrador del Servidor añadiendo nuevos roles. A su vez aña añadir este servicio, directamente se nos añadirá el servidor web IIS.</p>
+<img src='./files/windows/4.png'/><br/>
+<img src='./files/windows/5.png'/><br/>
+<img src='./files/windows/6.png'/><br/>
+<img src='./files/windows/7.png'/><br/>
+<img src='./files/windows/8.png'/>
+<h1><a id='bloque4'>3. Servicios de Impresión y Documentos</a></h1>
+<p>Ahora, activaremos el active directory ya que dichas impresoras se autentificarán con usuarios del propio dominio.</p>
+<img src='./files/windows/14.png'/><br/>
+<img src='./files/windows/15.png'/><br/>
+<img src='./files/windows/16.png'/>
+<p>Ahora, accedemos a nuestro navegador y vamos a comprobar si se encuentran las impresoras. Accedemos a través de nuestro dominio en active directory y la autentificación del usuario.</p>
+<img src='./files/windows/17.png'/><br/>
+<img src='./files/windows/18.png'/>
+<h2><a id='bloque5'>4. Pruebas</a></h2>
+<p class="significado">Ahora, vamos a nuestro cliente y empezamos probando si podemos acceder a nuestras impresoras del servidor.</p>
+<img src='./files/windows/20.png'/>
+<p>A continuación, vamos a Agregar una nueva impresora.</p>
+<img src='./files/windows/21.png'/><br/>
+<img src='./files/windows/22.png'/><br/>
+<img src='./files/windows/23.png'/><br/>
+<p>Tras esto, cogemos un documento y le damos a imprimir desde nuestra nueva impresora y como comprobaremos desde nuestro servidor se ejecuta la acción.</p>
+<img src='./files/windows/24.png'/><br/>
+<img src='./files/windows/25.png'/><br/>
+<p>Después configuramos el programa para que tenga un guardado automático en una carpeta en concreto.</p>
+<img src='./files/windows/26.png'/>
+<p>Verificamos que se generen los pdf.</p>
+<img src='./files/windows/27.png'/><br/>
+<img src='./files/windows/28.png'/>
+</div>
+</div>
+</body>
+</html>
