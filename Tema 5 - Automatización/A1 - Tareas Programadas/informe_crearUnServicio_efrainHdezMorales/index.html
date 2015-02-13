@@ -282,27 +282,44 @@ date >> /home/usuario/cron.log
 <p class="significado">En Windows 7 para iniciar el programador de tareas hacemos "Panel de control -> Herramientas administrativas -> Programador de tareas".</p>
 <h1><a id='bloque6'>2.1 Tarea programada diferida</a></h1>
 <p class='significado'>Hacer un ejemplo de tarea programada diferida de ejecutar el apagado de la máquina. Para ver la ayuda del comando shutdown hacemos "shutdown /?". Programar un apagado usando "shutdown /s".</p>
+<p>Empezamos con la creación de una tarea básica.</p>
 <img src='./files/windows/diferida/1.png'/><br/>
+<p>Al ser diferida, le indicamos que se ejecute una vez en una fecha y hora concreta.</p><br/>
 <img src='./files/windows/diferida/2.png'/><br/>
+<p>Le indicamos la fecha y hora.</p><br/>
 <img src='./files/windows/diferida/3.png'/><br/>
+<p>Iniciamos un programa.</p><br/>
 <img src='./files/windows/diferida/4.png'/><br/>
+<p>La acción que realizaremos será la de apagado, le indicamos que sea shutdown con parámetro de tiempo de un minuto.</p><br/>
 <img src='./files/windows/diferida/5.png'/><br/>
 <img src='./files/windows/diferida/6.png'/><br/>
+<p>Comprobamos su funcionamiento.</p>
 <img src='./files/windows/diferida/8.png'/>
-<h1><a id='bloque6'>2.2 Tarea programada periódica</a></h1>
+<h1><a id='bloque7'>2.2 Tarea programada periódica</a></h1>
 <p class='significado'>Hacer un ejemplo de tarea programada periódica de mostrar mensaje a pantalla.</p>
+<p>Empezamos con la creación de una tarea básica.</p><br/>
 <img src='./files/windows/periodica/1.png'/><br/>
+<p>Al ser periódica le indicamos que sea diariamente.</p><br/>
 <img src='./files/windows/periodica/2.png'/><br/>
+<p>Le indicamos cuando es el inicio.</p><br/>
 <img src='./files/windows/periodica/3.png'/><br/>
+<p>Mostramos un mensaje como tarea.</p>
 <img src='./files/windows/periodica/5.png'/><br/>
+<p>Le indicamos el título y cuerpo del mensaje.</p><br/>
 <img src='./files/windows/periodica/6.png'/><br/>
 <img src='./files/windows/periodica/7.png'/><br/>
+<p>Comprobamos su funcionamiento.</p><br/>
 <img src='./files/windows/periodica/8.png'/>
-<h1><a id='bloque6'>2.3 Tarea programada asíncrona</a></h1>
-<p class='significado'>Hacer un ejemplo de tarea programada asíncrona elegida por el usuario. En mi casoo, utilizaré el comando chkdsk para comprobar el disco duro si se encuentran errores.</p>
+<h1><a id='bloque8'>2.3 Tarea programada asíncrona</a></h1>
+<p class='significado'>Hacer un ejemplo de tarea programada asíncrona elegida por el usuario. En mi caso, utilizaré el comando chkdsk para comprobar el disco duro si se encuentran errores.</p>
+<p>Empezamos creando la tarea, rellenando con mis datos. En mi caso, escaneo del disco duro.</p><br/>
 <img src='./files/windows/asincrona/1.png'/><br/>
+<p>Enlazamos con el programa chkdsk que es el que realiza la comprobación del disco.</p><br/>
 <img src='./files/windows/asincrona/2.png'/><br/>
-<img src='./files/windows/asincrona/3.png'/>
+<p>Le indicamos que si no se ejecuta, que se inicie cada x tiempo, con el objetivo de la asíncrona.</p><br/>
+<img src='./files/windows/asincrona/3.png'/><br/>
+<p>Comprobamos su funcionamiento.</p><br/>
+<img src='./files/windows/asincrona/4.png'/><br/>
 </div>
 </div>
 </body>
