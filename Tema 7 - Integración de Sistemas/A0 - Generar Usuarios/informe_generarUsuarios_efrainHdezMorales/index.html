@@ -1,0 +1,301 @@
+<html>
+<head>
+	<title>Generar Usuarios - Efraín Hdez Morales</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Generar Usuarios</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>27 de Febrero de 2015</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">1. Windows Server<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque1">1.0 Introducción</a></li>
+			<li><a href="#bloque2">1.1 Configuración</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">2. gAWK<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque3">2.0 Introducción</a></li>
+			<li><a href="#bloque4">2.1 Instalación</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">3. XCALCS.vbs<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque5">3.0 Introducción</a></li>
+			<li><a href="#bloque6">3.1 Instalación</a></li>
+			<li><a href="#bloque7">3.2 usuarios.csv</a></li>
+			<li><a href="#bloque8">3.3 alta.awk</a></li>
+			<li><a href="#bloque9">3.4 crear.bat</a></li>
+			<li><a href="#bloque10">3.5 Archivos</a></li>
+          </ul>
+        </li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque1'>1. Windows Server</a></h1>
+<p class="significado">Configuramos nuestro servidor donde instalaremos un Active Directory con dominio.</p>
+<h2><a id='bloque2'>1.1 Configuración</a></h2>
+<p>Vamos al administrador del servidor y agregamos un nuevo rol. Seleccionamos "Servicios de Dominio de Active Directory". A continuación ejecutamos "dcpromo.exe" en la ventana de ejecutar.</p>
+<img src='./files/activeDirectory/1.png'/>
+<p>Creamos un nuevo dominio en un nuevo bosque.</p>
+<img src='./files/activeDirectory/2.png'/>
+<p>Seleccionamos nuestro nombre de dominio.</p>
+<img src='./files/activeDirectory/3.png'/>
+<p>Elegimos el servidor dns y finalizamos la configuración.</p>
+<img src='./files/activeDirectory/4.png'/>
+<h1><a id='bloque3'>2. gAWK</a></h1>
+<p class="significado">    <b>gAWK</b> es más que un simple comando de procesamiento de patrones, es todo un lenguaje de análisis semántico. Su dominio es como aprender todo un lenguaje de programación, pero en esta ocasión veremos unos ejemplos de su potencia en unos casos sencillos de análisis de patrones de cadenas, espero te sirvan de base para que puedas aprender aun más sobre esta interesante herramienta.
+.</p>
+<h2><a id='bloque4'>2.1 Instalación</a></h2>
+<p>Descargamos el programa y procedemos a su instalación.</p>
+<img src='./files/gawk/1.png'/>
+<p>A continuación, vamos a poner la aplicacion "awk.exe" como variable de entorno de windows. Para esto vamos a Panel de Control -> Sistema y Seguridad-> Sistema -> Configuración Avanzada -> Añadimos lo siguiente. </p>
+<img src='./files/gawk/2.png'/>
+<h1><a id='bloque5'>3. XCALCS.vbs</a></h1>
+<p class='significado'><b>XCACLS.vbs</b> es un script que nos permite, ver, modificar y eliminar permisos NTFS en Windows.</p>
+<h2><a id='bloque6'>3.1 Instalación</a></h2>
+<p>Primero descargamos el script desde su <a href='http://download.microsoft.com/download/f/7/8/f786aaf3-a37b-45ab-b0a2-8c8c18bbf483/xcacls_installer.exe'>página oficial</a> y procedemos a su instalación.</p>
+<img src='./files/xcalcs/1.png'/><br/>
+<img src='./files/xcalcs/2.png'/>
+<p>Ahora, vamos a la carpeta C:\Windows y editamos el archivo XCACLS.vbs añadiendo lo siguiente para que soporte la versión 6.0 (Windows Server 2008):</p>
+<img src='./files/xcalcs/3.png'/>
+<p>Luego cambiaremos el motor de secuencias de comandos predeterminado, de WSCRIPT a CSCRIPT, esto debido a que XCACLS.vbs trabaja mejor con Cscript. Para eso escribiremos el siguiente comando en Ejecutar: </p>
+<img src='./files/xcalcs/4.png'/>
+<p>Para utilizar el script, debemos abrir una nueva consola de línea de comandos (cmd) e ir hasta el directorio c:\WINDOWS.</p>
+<p>Luego ejecutaremos <i>"cscript.exe xcacls.vbs"</i></p>
+<img src='./files/xcalcs/5.png'/>
+<h2><a id='bloque7'>3.2 Usuarios.csv</a></h2>
+<p>Ahora, creamos un archivo csv de la siguiente forma:</p>
+<img src='./files/xcalcs/8.png'/>
+<h2><a id='bloque8'>3.3 Alta.awk</a></h2>
+<p>Ahora, creamos un archivo awk de la siguiente forma:</p>
+<img src='./files/xcalcs/9.png'/>
+<h2><a id='bloque9'>3.4 Crear.bat</a></h2>
+<p>A continuación, vamos a la cmd y ejecutamos: "awk lf alta.awk usuarios.csv" y generamos el .bat</p>
+<img src='./files/xcalcs/10.png'/>
+<p>Tras esto, ejecutamos nuestro script .bat</p>
+<img src='./files/xcalcs/11.png'/>
+<p>Vamos a nuestros usuarios de active directory para comprobar que se hayan creado correctamente.</p>
+<img src='./files/xcalcs/12.png'/><br/>
+<img src='./files/xcalcs/13.png'/>
+<h2><a id='bloque10'>3.5 Archivos</a></h2>
+<p class='significado'>Mis archivos creados en la práctica están: <a href='./files/files' target="_blank">aquí</a> (abrir enlace en una pestaña nueva)<br/></p>
+</div>
+</div>
+</body>
+</html>
