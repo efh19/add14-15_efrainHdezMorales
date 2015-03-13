@@ -1,0 +1,332 @@
+<html>
+<head>
+	<title>Samba - Efraín Hdez Morales</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Recursos compartidos Samba</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>13 de Marzo de 2015</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">1. SO GNU/Linux<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque0">1.0 Introducción</a></li>
+			<li><a href="#bloque1">1.1 Preparativos Servidor Samba</a></li>
+			<li><a href="#bloque2">1.2 Instalar y configurar Samba</a></li>
+			<li><a href="#bloque3">1.3 Cliente Windows</a></li>
+			<li><a href="#bloque4">1.4 Cliente GNU/Linux</a></li>
+			<li><a href="#bloque5">1.5 Montaje automático</a></li>
+			<li><a href="#bloque6">1.6 Preguntas para resolver</a></li>
+          </ul>
+        </li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque0'>1. SO GNU/Linux</a></h1>
+<p>Empezamos con  la configuración del servidor indicándole una ip estática y la siguiente configuración de red.</p><br/>
+<img src='./files/samba/1.png'/><br/>
+<p>A continuación, le indicamos el hostname que es mi primer apellido más el número 3.</p><br/>
+<img src='./files/samba/2.png'/><br/>
+<p>Por último, en los aspectos preparativos instalamos el servidor open ssh.</p><br/>
+<img src='./files/samba/3.png'/><br/>
+<h2><a id='bloque1'>1.1 Preparativos Servidor Samba</a></h2>
+<p>Ahora, empezamos con los preparativos del servidor samba. Lo primero que haremos será crear el grupo panaderos e informáticos.</p><br/>
+<img src='./files/samba/4.png'/><br/>
+<p>A continuación, creamos los usuarios info1, info2, pan1, pan2, supersamba y smbguest.</p><br/>
+<img src='./files/samba/5.png'/><br/>
+<p>Seguidamente, añadimos cada usuario en su respectivo grupo. Info1 e info2 a informáticos. Pan1 y Pan2 a panaderos. Supersamba a ambos y smbguest, por ahora, a ninguno de los dos grupos.</p><br/>
+<img src='./files/samba/6.png'/><br/>
+<p>Para asegurarnos que nadie puede usar smbguest para entrar en nuestra máquina mediante login, vamos a modificar en el fichero /etc/passwd de la siguiente manera: .</p><br/>
+<img src='./files/samba/7.png'/><br/>
+<p>Ahora, por último, en el aspecto preparatorio del servidor samba, creamos un grupo denominado usuariosamba y metemos a todos los usuarios, incluido smbguest.</p><br/>
+<img src='./files/samba/8.png'/><br/>
+<img src='./files/samba/9.png'/><br/>
+<h2><a id='bloque2'>1.2 Instalar y configurar Samba</a></h2>
+<p>Tras tener preparado el servidor samba, comenzaremos con su instalación y configuración. Vamos a la terminal y ejecutamos:</p><br/>
+<img src='./files/samba/10.png'/><br/>
+<p>Ahora, procedemos a editar el archivo de configuración. Antes que nada hacemos una copia de seguridad de dicho fichero.</p><br/>
+<img src='./files/samba/11.png'/><br/>
+<p>Tras esto, creamos un fichero denominado "smb.conf" en "/etc/samba" y lo rellenamos con la siguiente información:</p><br/>
+<img src='./files/samba/12.png'/><br/>
+<p>A continuación crearemos las carpetas panaderos, informaticos y public en "/var/samba" y le añadiremos los siguientes propietarios a cada una de ellas:</p><br/>
+<img src='./files/samba/13.png'/><br/>
+<p>El siguiente paso será añadir los usuarios a samba:</p><br/>
+<img src='./files/samba/15.png'/><br/>
+<img src='./files/samba/16.png'/><br/>
+<p>Ahora paramos, iniciamos y comprobamos en qué estado se encuentra el servicio de samba:</p><br/>
+<img src='./files/samba/17.png'/><br/>
+<p>Tras esto, Verificamos la sintaxis del fichero de configuración del servidor Samba:</p><br/>
+<img src='./files/samba/18.png'/><br/>
+<p>Comprobamos que el servicio SMB/CIF está a la escucha.</p><br/>
+<img src='./files/samba/19.png'/><br/>
+<h2><a id='bloque3'>1.3 Cliente Windows</a></h2>
+<p>Ahora, vamos a nuestro cliente windows y en el navegador de archivos, introduciendo la ip del servidor samba, saldrán los recursos a compartir.</p><br/>
+<p>En el cliente Windows, para consultar todas las conexiones/recursos conectados hacemos "C:>net use". Si hubiera alguna conexión abierta, para cerrar las conexión SMB al servidor, podemos usar el siguiente comando "C:>net use * /d /y". Si ahora ejecutamos el comando "net use", debemos comprobar que NO hay conexiones establecidas...</p><br/>
+<img src='./files/samba/20.png'/><br/>
+<img src='./files/samba/21.png'/><br/>
+<p>Abrir una shell de windows. Usar el comando "net use /?", para consultar la ayuda del comando.</p><br/>
+<img src='./files/samba/22.png'/><br/>
+<p>Con el comando "net view", vemos las máquinas (con recursos CIFS) accesibles por la red.</p><br/>
+<img src='./files/samba/23.png'/><br/>
+<p>Vamos a conectarnos desde la máquina Windows al servidor Samba usando los comandos net. Por ejemplo el comando "net use P: \\172.16.108.12\panaderos /USER:pan1" establece una conexión del rescurso panaderos en la unidad P. Ahora podemos entrar en la unidad P ("p:") y crear carpetas, etc.</p><br/>
+<img src='./files/samba/24.png'/><br/>
+<img src='./files/samba/26.png'/><br/>
+<p>Para comprobar resultados, desde el servidor Samba ejecutamos:</p><br/>
+<img src='./files/samba/27.png'/><br/>
+<h2><a id='bloque4'>1.4 Cliente GNU/Linux</a></h2>
+<p>Instalamos "smb4k" ("apt-get install smb4k") en un cliente linux, en mi caso, lubuntu. Seguidamente lo abrimos y nos conectamos al recurso compartido samba.</p><br/>
+<img src='./files/samba/28.png'/><br/>
+<img src='./files/samba/29.png'/><br/>
+<img src='./files/samba/30.png'/><br/>
+<p>Comprobamos que solo en public se puede ver ya que esta en modo lectura y no se pueden crear carpetas.</p><br/>
+<img src='./files/samba/31.png'/><br/>
+<p>Para comprobar resultados, desde el servidor Samba ejecutamos:</p><br/>
+<img src='./files/samba/32.png'/><br/>
+<img src='./files/samba/33.png'/><br/>
+<p>Ahora comprobamos las conexiones:</p><br/>
+<img src='./files/samba/34.png'/><br/>
+<img src='./files/samba/35.png'/><br/>
+<p>Ahora crearemos en local la carpeta /mnt/samba-remoto/public</p><br/>
+<img src='./files/samba/36.png'/><br/>
+<p>Con el usuario root, usamos el siguiente comando para montar un recurso compartido de Samba Server, como si fuera una carpeta más de nuestro sistema:</p><br/>
+<img src='./files/samba/37.png'/><br/>
+<p>Ejecutamos el comando "df -hT". Veremos que el recurso ha sido montado:</p><br/>
+<img src='./files/samba/38.png'/><br/>
+<p>Para desmontar el recurso remoto usamos el comando umount.</p><br/>
+<img src='./files/samba/39.png'/><br/>
+<p>Para comprobar resultados, desde el servidor Samba ejecutamos:</p><br/>
+<img src='./files/samba/40.png'/><br/>
+<h2><a id='bloque5'>1.5 Montaje Automático</a></h2>
+<p>Acabamos de acceder a recursos remotos, realizando un montaje de forma manual (comandos mount/umount). Si reiniciamos el equipo cliente, podremos ver que los montajes realizados de forma manual ya no están establecidos. Si queremos volver a acceder a los recursos remotos debemos repetir el proceso, a no ser que hagamos una configuración permanente o automática.</p>
+<p>Para configurar acciones de montaje automáticos cada vez que se inicie el equipo, debemos añadir la siguiente configuración al fichero /etc/fstab.</p><br/>
+<a href='./files/samba/41.png' target='_blank'><img src='./files/samba/41.png'/></a><br/>
+<img src='./files/samba/42.png'/><br/>
+<h2><a id='bloque6'>1.6 Preguntas</a></h2>
+<p class='significado'><b>¿Las claves de los usuarios en GNU/Linux deben ser las mismas que las que usa Samba?</b></p><br/>
+<p>No, pueden ser diferentes. Una clave del sistema puede ser diferente al usuario de samba.</p><br/>
+<p class='significado'><b>¿Puedo definir un usuario en Samba llamado panadero3, y que no exista como usuario del sistema?</b></p><br/>
+<p>No, el usuario tiene que estar en el sistema.</p><br/>
+<p class='significado'><b>¿Cómo podemos hacer que los usuarios panadero1 y panadero2 no puedan acceder al sistema pero sí al samba? (Consultar /etc/passwd)</b></p><br/>
+<p>Tendríamos que añadirle /bin/false a cada usuario en el /etc/passwd y después añadirlo al sistema samba con smbpasswd.</p><br/>
+<p class='significado'><b>Añadir el recurso [homes] al fichero smb.conf según los apuntes. ¿Qué efecto tiene?</b></p>
+<p>; Recurso Home para cada usuario <br/>
+[homes]<br/>
+comment = Home Directories<br/>
+browseable = no; <b>esta opción establece que el recurso esté oculto en el entorno de red</b><br/>
+writable = yes; <b> usuario tendrá permisos de escritura </b></p><br/>
+</div>
+</div>
+</body>
+</html>
