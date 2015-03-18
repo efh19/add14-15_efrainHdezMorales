@@ -1,0 +1,304 @@
+<html>
+<head>
+	<title>PDC Samba - Efraín Hdez Morales</title>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="./files/favicon.ico" />
+	<script src="./files/jquery-2.1.1.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="./files/bootstrap.min.css">
+	<link rel="stylesheet" href="./files/font-awesome.min.css">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="./files/bootstrap.min.js"></script>
+	<style type='text/css'>
+		body{
+			font-family: Arial;
+			background: url(./files/body.png) repeat;
+		}
+		#content{
+			width:980px;
+			margin:0 auto;
+			text-align:center;
+			background: url(./files/anillas.png) repeat;
+			padding-right:80px;
+			padding-left:80px;
+			padding-bottom:60px;
+		}
+		p{
+			font-size:12px;
+			text-align:justify;
+			margin:8px;
+		}
+		ul{
+			font-size:12px;
+			margin-left:5px;
+			text-align:justify;
+		}
+		img{
+			width:50%;
+			border:1px solid black;
+		}
+		img.logo{
+			width:auto;
+			border:0;
+		}
+		div.copyright{
+		width:50%;
+			background:grey;
+			text-align:center;
+			border-left:1px solid black;
+			border-right:1px solid black;
+			border-bottom:1px solid black;
+			border-top: 1px solid transparent;
+			margin: 0 auto;
+		}
+		div.copyright p{
+		margin:5px;
+		padding:0;
+		color:white;
+		font-family: Arial;
+		font-size:13px;
+		color:black;
+		text-align:center;
+		}
+		a{
+			text-decoration:none;
+			color:black;
+		}
+		a:hover{
+			color:black;
+			text-decoration:none;
+		}
+		h1{
+			background: #ccc;
+			padding:5px;
+			padding-left:20px;
+			border-left:8px solid black;
+			border-right:8px solid black;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		h2{
+			background: #ccc;
+			padding:5px;
+			padding-left:50px;
+			border-left:8px solid gray;
+			border-right:8px solid gray;
+			border-bottom: 1px dotted gray;
+			border-top: 1px dotted gray;
+			text-align:left;
+			color:black;
+		}
+		p.significado{
+			padding:25px;
+			padding-left:90px;
+			border: 1px dotted black;
+			margin:20px;
+			margin-bottom: 35px;
+			position:relative;
+			text-align:justify;
+		}
+		p.significado img{
+			position:absolute;
+			
+			width:auto;
+			border:0;
+		}
+		p.significado:before{
+			content:"";
+			width:75px;
+			height:75px;
+			position:absolute;
+			background: url(./files/significado.png) no-repeat;
+			top:-5px;
+			left:-10px;
+		}
+		p.significado p{
+			display:none;
+		}
+		p.significado div{
+			display:none;
+		}
+		.f-nav{ z-index: 9999; position: fixed;top:0;margin: 0 auto; width:850px; margin-left:-15px;-moz-box-shadow: 0 0 5px 5px #888;
+-webkit-box-shadow: 0 0 5px 5px#888;
+box-shadow: 0 0 5px 5px #888;}
+		.scrolling {
+    margin-top:60px !important;
+}
+nav{
+	width:100%;
+}
+nav li:hover{
+	cursor:pointer;
+}
+
+.navbar-brand > img{
+	display:none;
+}
+
+.visible{
+	display:block;
+}
+.oculto{
+	display:none;
+}
+
+#autor{
+	display:none;
+}
+
+.bs-callout-info {
+	border-left:4px solid #5BC0DE;
+	border-right:4px solid #5BC0DE;
+}
+
+.list-group{
+	text-align:left;
+}
+#info{
+	padding-top:20px;
+	font-size:12px;
+}
+	</style>
+	<script type='text/javascript'>
+		$(function() {
+			$('img[class!="logo"]').after('<div class="copyright"><p>&copy;Foto: Imagen de Efraín Hernández Morales.</p></div>');
+				var nav = $('nav');
+					$(window).scroll(function () {
+					if ($(this).scrollTop() > 136) {
+					nav.addClass("f-nav");
+					$('.navbar-brand > img').css("display","block");
+					$('nav img').removeClass("oculto");
+					$('nav img').addClass("visible");
+					$('#autor').css("display","block");
+					} else {
+					$('.navbar-brand > img').css("display","none");
+					$('nav img').removeClass("visible");
+					$('nav img').addClass("oculto");
+					nav.removeClass("f-nav");
+					$("#content").removeClass("scrolling");
+					$('#autor').css("display","none");
+					}
+				});
+				$(function(){
+					$('a[href]').on('click',function(e){
+					$("#content").removeClass("scrolling");
+						e.preventDefault();
+						var strAncla=$(this).attr('href');
+						$('body,html').stop(true,true).animate({
+							scrollTop: $(strAncla).offset().top
+						},1000);
+						$("#content").addClass("scrolling");
+					});
+				}); 
+		});
+	</script>
+</head>
+<body>
+<div id='content'>
+<div class="row" id='info'>
+   <div class="col-xs-12 col-md-6"><img src='./files/logo.png' class='logo' style='margin-top:30px;'/></div>
+  <div class="col-xs-6 col-md-6"><div class="list-group">
+  <a href="#" class="list-group-item"><b>M&oacute;dulo:</b> <i>Sistemas Operativos</i></a>
+  <a href="#" class="list-group-item"><b>T&iacute;tulo del trabajo:</b> <i>Generar Usuarios</i></a>
+  <a href="#" class="list-group-item"><b>Componentes del grupo:</b> <i>Efraín Hernández Morales</i></a>
+  <a href="#" class="list-group-item"><b>Curso Acad&eacute;mico:</b> <i>2014/2015</i></a>
+  <a href="#" class="list-group-item"><b>Fecha de entrega:</b> <i>18 de Marzo de 2015</i></a>
+</div></div>
+</div>
+<nav class="navbar navbar-default bs-callout-info" role="navigation">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+	  <a class="navbar-brand" href="#">
+        <img alt="Brand" height='20px' width='20px' src="./files/logoMenu.png" class='logo'>
+      </a>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">1. PDC con Samba<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque1">1.0 Introducción</a></li>
+			<li><a href="#bloque2">1.1 Configuración del PDC</a></li>
+			<li><a href="#bloque3">1.2 Configuraciones de red</a></li>
+          </ul>
+        </li>
+		<li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">2. Cuenta UNIX de máquina<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+			<li><a href="#bloque3">2.0 Introducción</a></li>
+			<li><a href="#bloque4">2.1 Cuenta Samba para la máquina</a></li>
+			<li><a href="#bloque5">2.2 Cuenta UNIX+Samba para cada usuario</a></li>
+			<li><a href="#bloque6">2.3 Unir un Cliente Windows al dominio</a></li>
+          </ul>
+        </li>
+      </ul>
+	  <ul class="nav navbar-nav navbar-right" id='autor'>
+        <li><a href="#"><i class="fa fa-user"></i>Efraín Hdez Morales</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div id='anillas'>
+<h1><a id='bloque1'>1. PDC con Samba</a></h1>
+<h2><a id='bloque2'>1.1 Configuración del PDC</a></h2>
+<p>Hacemos la instalación de samba en el servidor.</p>
+<img src='./files/samba/1.png'/>
+<p>Creamos una copia de seguridad del archivo de configuración de samba.</p>
+<img src='./files/samba/2.png'/>
+<p>Ahora agregamos un smb.conf con la siguiente configuración.</p>
+<img src='./files/samba/3.png'/>
+<p>Creamos las siguientes carpetas:</p>
+<img src='./files/samba/4.png'/>
+<h2><a id='bloque2'>1.1 Configuraciones de Red</a></h2>
+<p>Configuramos la ip del servidor en modo estático:</p>
+<img src='./files/samba/5.png'/>
+<p>Configuramos otro cliente linux con otra ip diferente:</p>
+<img src='./files/samba/6.png'/>
+<p>Configuramos otro cliente, esta vez, windows con otra ip diferente:</p>
+<img src='./files/samba/7.png'/>
+<p>Ahora en el cliente linux le cambiamos el hostname con el correspondiente a la práctica:</p>
+<img src='./files/samba/8.png'/>
+<p>Ahora en el cliente windows le cambiamos el nombre de equipo con el correspondiente a la práctica:</p>
+<img src='./files/samba/9.png'/>
+<p>Por último, hacemos comprobaciones para ver si entre ambas máquinas se ven con ping.</p>
+<img src='./files/samba/10.png'/>
+<p>Ahora vemos si funciona el nslookup para ver si está bien la resolución de nombres.</p>
+<img src='./files/samba/11.png'/>
+<h1><a id='bloque3'>2. Cuenta UNIX de máquina</a></h1>
+<p>Crear el grupo "machines" en el servidor.</p>
+<img src='./files/samba/12.png'/>
+<p>Ahora vamos a crear las cuentas de máquina "client3" y "client4".</p>
+<img src='./files/samba/13.png'/>
+<p>Bloqueamos la cuenta Unix para evitar el acceso a una shell.</p>
+<img src='./files/samba/14.png'/>
+<h2><a id='bloque4'>2.1 Cuenta Samba para la máquina</a></h2>
+<p>Vamos a crear la cuenta Samba de la máquina. La opcion –m indica que se trata de una cuenta de tipo máquina.</p>
+<img src='./files/samba/15.png'/>
+<h2><a id='bloque4'>2.2 Cuenta UNIX+Samba para cada usuario</a></h2>
+<p>Crear el grupo "enterprise", con los usuarios "kirk", "spock", "sulu". </p>
+<p>Crear el grupo "borg" con los usuarios "borg1", "borg2" y "borg3".</p>
+<img src='./files/samba/16.png'/><br/>
+<img src='./files/samba/17.png'/><br/>
+<img src='./files/samba/18.png'/><br/>
+<img src='./files/samba/19.png'/><br/>
+<p>En el servidor, vamos crear las cuentas Samba: Para todos los usuarios anteriores, y para el usuario root.</p>
+<img src='./files/samba/20.png'/>
+<p>Además es conveniente crear la carpeta del perfil de cada usuario y poner los permisos correspondientes.</p>
+<img src='./files/samba/21.png'/>
+<h2><a id='bloque4'>2.3 Unir un Cliente Windows al dominio </a></h2>
+<p>Modificar el registro de cada host con Windows 7 para agregar las siguientes claves, ubicadas en "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanWorkstation\Parameters":</p>
+<img src='./files/samba/22.png'/>
+<p>Y alterar las que se muestran debajo, ubicadas en "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\Netlogon\Parameters":</p>
+<img src='./files/samba/23.png'/>
+<p>Vamos a unir el cliente al dominio, para ello introduciremos el nombre del dominio, nos pedirá una contraseña con derechos para agregar máquinas al dominio, esta será la de root del PDC. Se supone que previamente habremos creado su cuenta samba con el comando smbpasswd -a root. </p>
+<img src='./files/samba/25.png'/>
+<p>Nos unimos al dominio. </p>
+<img src='./files/samba/26.png'/><br/>
+<img src='./files/samba/27.png'/>
+<p>Iniciamos sesión con un usuario de samba.</p>
+<img src='./files/samba/28.png'/><br/>
+<img src='./files/samba/29.png'/>
+</div>
+</div>
+</body>
+</html>
